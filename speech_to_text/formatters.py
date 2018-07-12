@@ -32,8 +32,6 @@ class SimpleJsonFormatter(BaseJsonFormatter):
 
 class HTMLFormatter(BaseFormatter):
     def format(self, data):
-	from pprint import pprint
-	pprint(data);
         results = (obj['transcript']
                    for obj in self._parse(data))
         lines = ("{spaces}<p>{line}</p>\n".format(

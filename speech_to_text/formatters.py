@@ -35,7 +35,7 @@ class HTMLFormatter(BaseFormatter):
         results = (obj['transcript']
                    for obj in self._parse(data))
         lines = ("{spaces}<p>{line}</p>\n".format(
-            spaces=(' ' * 4), line=line) for line in results)
+            spaces=(' ' * 4), line=line.encode('utf-8')) for line in results)
         return "<html>\n{}</html>".format(''.join(lines))
 
 
@@ -43,7 +43,7 @@ class MarkdownFormatter(BaseFormatter):
     def format(self, data):
         results = (obj['transcript']
                    for obj in self._parse(data))
-        lines = ("{line}\n\n".format(line=line) for line in results)
+        lines = ("{line}\n\n".format(line=line.encode('utf-8')) for line in results)
 
         return ''.join(lines).rstrip()
 

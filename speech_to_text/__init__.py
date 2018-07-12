@@ -50,7 +50,7 @@ def recognize_speech(username, password, audio_file_path,
     }
 
     default_options = build_default_options(
-        audio_model=audio_model,
+        model=audio_model,
         inactivity_timeout=inactivity_timeout)
     kwargs.update(default_options)
     kwargs.update(extra_options or {})
